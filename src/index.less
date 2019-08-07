@@ -1,0 +1,113 @@
+@frame-width: 4rpx;
+@frame-color: #FFFFFF;
+@default-padding: 30rpx;
+
+.tailor {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #000000;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  &-top,
+  &-bottom {
+    width: 100%;
+    height: 0;
+    z-index: 666;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+  }
+  &-top {
+    flex-grow: 1;
+  }
+  &-bottom {
+    flex-grow: 1.4;
+  }
+  &-middle {
+    width: 100%;
+    z-index: 333;
+    display: flex;
+  }
+  &-top-left,
+  &-top-right,
+  &-middle-left,
+  &-middle-right,
+  &-bottom-left,
+  &-bottom-right {
+    height: 100%;
+    width: 0;
+    flex-grow: 1;
+    box-sizing: border-box;
+  }
+  &-top-center,
+  &-middle-center,
+  &-bottom-center {
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  &-top-center::after {
+    content: '';
+    position: absolute;
+    left: -@frame-width;
+    bottom: 0;
+    width: calc(100% + 2 * @frame-width);
+    height: 0;
+    border-bottom: @frame-width solid @frame-color;
+  }
+  &-bottom-center::before {
+    content: '';
+    position: absolute;
+    left: -@frame-width;
+    top: 0;
+    width: calc(100% + 2 * @frame-width);
+    height: 0;
+    border-top: @frame-width solid @frame-color;
+  }
+  &-middle-left {
+    border-right: @frame-width solid @frame-color;
+  }
+  &-middle-right {
+    border-left: @frame-width solid @frame-color;
+  }
+  &-middle-left,
+  &-middle-right {
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 333;
+  }
+  &-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  &-canvas {
+    position: fixed;
+    left: 0;
+    top: -9999px;
+  }
+  &-btns {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    padding: @default-padding;
+    box-sizing: border-box;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-cancel,
+  &-confirm {
+    width: calc(100% / 2 - @default-padding / 2);
+    height: 80rpx;
+    font-size: 32rpx;
+    padding: 0;
+    margin: 0;
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}

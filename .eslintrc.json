@@ -1,0 +1,18 @@
+{
+  "extends": "airbnb-base",
+  "globals": {
+    "window": true,
+    "document": true,
+    "App": true,
+    "Page": true,
+    "Component": true,
+    "Behavior": true,
+    "wx": true
+  },
+  "rules": {
+    "camelcase": 0,
+    "no-console": 0,
+    "no-underscore-dangle": 0,
+    "import/no-extraneous-dependencies": 0
+  }
+}

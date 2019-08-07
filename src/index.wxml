@@ -1,0 +1,52 @@
+<view class="tailor">
+  <view class="tailor-top">
+    <view class="tailor-top-left" />
+    <view class="tailor-top-center" style="width: {{_width}}rpx;" />
+    <view class="tailor-top-right" />
+  </view>
+  <view class="tailor-middle" style="height: {{_height}}rpx;">
+    <view class="tailor-middle-left" />
+    <movable-area
+      scale-area
+      class="tailor-middle-center"
+      style="width: {{_width}}rpx;">
+      <movable-view
+        direction="all"
+        inertia
+        x="{{_x}}"
+        y="{{_y}}"
+        damping="{{_damping}}"
+        friction="{{_friction}}"
+        scale
+        scale-min="1"
+        animation="{{false}}"
+        bindchange="moving"
+        bindscale="scaling"
+        style="width: {{m_width}}rpx; height: {{m_height}}rpx;">
+        <image src="{{src}}" class="tailor-image" />
+      </movable-view>
+    </movable-area>
+    <view class="tailor-middle-right" />
+  </view>
+  <view class="tailor-bottom">
+    <view class="tailor-bottom-left" />
+    <view class="tailor-bottom-center" style="width: {{_width}}rpx;" />
+    <view class="tailor-bottom-right" />
+  </view>
+</view>
+
+<view class="tailor-btns">
+  <button
+    class="tailor-cancel"
+    style="color: {{cancelColor}}; background-color: {{cancelBgColor}};"
+    catchtap="cancel">{{cancelText}}</button>
+  <button
+    class="tailor-confirm"
+    style="color: {{confirmColor}}; background-color: {{confirmBgColor}};"
+    catchtap="export">{{confirmText}}</button>
+</view>
+
+<canvas
+  class="tailor-canvas"
+  style="width: {{_width}}rpx; height: {{_height}}rpx;"
+  canvas-id="tailor" />

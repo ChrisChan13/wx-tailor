@@ -1,0 +1,7 @@
+<tailor wx:if="{{show}}" src="{{origin}}" bind:cancel="hide" bind:confirm="confirm" />
+
+<view class="container">
+  <image src="{{src}}" />
+  <text>↑↑↑裁剪好的图片</text>
+  <button catchtap="chooseImage">选择图片</button>
+</view>
