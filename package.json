@@ -1,6 +1,6 @@
 {
   "name": "wx-tailor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple image cropper for Wechat Miniprogram",
   "main": "miniprogram_dist/index.js",
   "miniprogram": "miniprogram_dist",

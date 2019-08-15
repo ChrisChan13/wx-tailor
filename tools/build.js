@@ -22,12 +22,9 @@ const lessToWxss = filePath => gulp.src(filePath, { cwd: srcPath })
 const copy = (filePath, src, dist) => gulp.src(filePath, { cwd: src })
   .pipe(gulp.dest(dist));
 
-
 gulp.task('build-component-wxss', () => lessToWxss('**/*.less'));
-gulp.task('build-component-wxml', () => copy('**/*.wxml', srcPath, distPath));
-gulp.task('build-component-json', () => copy('**/*.json', srcPath, distPath));
-gulp.task('build-component-js', () => copy('**/*.js', srcPath, distPath));
-gulp.task('build-component', gulp.parallel('build-component-wxss', 'build-component-wxml', 'build-component-json', 'build-component-js'));
+gulp.task('build-component-rest', () => copy(['**/*.wxml', '**/*.json', '**/*.js'], srcPath, distPath));
+gulp.task('build-component', gulp.parallel('build-component-wxss', 'build-component-rest'));
 gulp.task('build-demo', () => copy('**/*', demoSrc, demoDist));
 gulp.task('watch-component', () => {
   const watchCallback = (filePath) => {
